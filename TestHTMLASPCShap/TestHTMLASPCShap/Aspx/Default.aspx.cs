@@ -11,4 +11,28 @@ public partial class Aspx_Default : System.Web.UI.Page
     {
 
     }
+
+    protected void btncal_Click(object sender, EventArgs e)
+    {
+        if (Convert.ToDecimal(txtScore.Text) <= 50)
+        {
+            Response.Write("Grade F");
+        }
+        else if (Convert.ToDecimal(txtScore.Text) <= 60)
+        {
+            Response.Write("Grade D");
+        }
+        else if (Convert.ToDecimal(txtScore.Text) <= 70)
+        {
+            Response.Write("Grade C");
+        }
+        else if (Convert.ToDecimal(txtScore.Text) <= 80)
+        {
+            Response.Write("Grade B");
+        }
+        else
+        {
+            Response.Write("Grade A");
+        }
+    }
 }

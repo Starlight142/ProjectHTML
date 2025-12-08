@@ -9,8 +9,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            tttt
-            
+            <asp:Label ID="lblScore" runat="server" Text="คะแนน"></asp:Label> 
+        &nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtScore" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btncal" runat="server" Text="คำนวณ" OnClick="btncal_Click" />
         </div>
     </form>
 </body>
