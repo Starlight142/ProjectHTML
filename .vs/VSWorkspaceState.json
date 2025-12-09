@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TestHTMLASPCShap",
-    "\\TestHTMLASPCShap\\TestHTMLASPCShap",
-    "\\TestHTMLASPCShap\\TestHTMLASPCShap\\Aspx",
-    "\\TestHTMLASPCShap\\TestHTMLASPCShap\\Html"
+    "\\TestHTMLASPCShap"
   ],
-  "SelectedNode": "\\TestHTMLASPCShap\\TestHTMLASPCShap\\Aspx\\ExDowhile.aspx",
+  "SelectedNode": "\\TestHTMLASPCShap\\TestHTMLASPCShap",
   "PreviewInSolutionExplorer": false
 }
