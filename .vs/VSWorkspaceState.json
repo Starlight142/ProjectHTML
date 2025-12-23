@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\GetPostCookieSessionValid",
+    "\\SesionMulitview",
     "\\TestHTMLASPCShap"
   ],
-  "SelectedNode": "\\TestHTMLASPCShap\\TestHTMLASPCShap",
+  "SelectedNode": "\\GetPostCookieSessionValid\\GetPostCookieSessionValid.sln",
   "PreviewInSolutionExplorer": false
 }
