@@ -1,0 +1,135 @@
+﻿@page
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaSoul | Custom Herbal Inhalers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+    <nav class="glass-nav">
+        <div class="logo">AromaSoul</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">Essence</a></li>
+            <li><a href="#customizer" class="cta-btn-small">Create Blend</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Breathe in <br> <span>Nature's Wisdom</span></h1>
+            <p>Craft your personal herbal inhaler for relief, focus, and serenity.</p>
+            <a href="#customizer" class="cta-btn-main">Start Blending</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-circle circle-1"></div>
+            <div class="floating-circle circle-2"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>The Art of Inhalation</h2>
+            <p>Ancient remedies meets modern customization. Select from premium organic herbs, not limited to
+                traditional Thai spices. Lavender, Peppermint, Eucalyptus, and more.</p>
+        </div>
+    </section>
+
+    <section id="customizer" class="customizer-section">
+        <div class="container">
+            <div class="customizer-header">
+                <h2>Design Your Scent</h2>
+                <p>Select your base herbs and enhancements.</p>
+            </div>
+
+            <div class="customizer-interface glass-panel">
+                <div class="symptom-filter">
+                    <span>I want to feel:</span>
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="relaxed">Relaxed</button>
+                    <button class="filter-btn" data-filter="energized">Energized</button>
+                    <button class="filter-btn" data-filter="relief">Relief</button>
+                </div>
+
+                <div class="selection-area">
+                    <div class="herb-grid" id="herbGrid">
+                        <!-- Herbs will be injected here via JS -->
+                    </div>
+                </div>
+
+                <div class="blend-visuals">
+                    <div class="inhaler-container">
+                        <div class="inhaler-cap"></div>
+                        <div class="inhaler-body" id="inhalerBody">
+                            <!-- Visual layers injected here -->
+                            <div class="inhaler-empty-text">Empty</div>
+                        </div>
+                        <div class="inhaler-base"></div>
+                    </div>
+                </div>
+
+                <div class="blend-summary">
+                    <h3>Your Blend</h3>
+                    <ul id="blendList">
+                        <li class="empty-state">Select herbs to begin...</li>
+                    </ul>
+                    <div class="blend-stats">
+                        <div class="stat-bar">
+                            <div class="fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="blend-name-input">
+                        <input type="text" id="blendName" placeholder="Name your creation..." maxlength="25">
+                    </div>
+                    <button id="addToCart" class="cta-btn-main" disabled>Add to Cart - $12.00</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Overlay Elements -->
+    <button id="cartToggle" class="cart-floating-btn">
+        <span class="cart-icon">🛍️</span>
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-header">
+            <h3>Your Collection</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items injected here -->
+            <div class="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="cta-btn-main checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AromaSoul. Breathe Well.</p>
+    </footer>
+
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>
