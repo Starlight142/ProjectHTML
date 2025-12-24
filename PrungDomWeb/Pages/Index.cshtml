@@ -1,0 +1,140 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Breath Your Style";
+}
+
+<div class="hero fade-in" style="text-align: center; padding: var(--spacing-lg) 0; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="font-size: 4rem; font-weight: 300; margin-bottom: var(--spacing-sm); color: var(--color-primary);">PRUNG DOM</h1>
+    <p style="font-size: 1.5rem; color: var(--color-text-muted); margin-bottom: var(--spacing-md); max-width: 600px;">
+        Curate your personal respiratory wellness. <br> 
+        <span style="color: var(--color-accent);">Your scent. Your style. Your jar.</span>
+    </p>
+    <a href="#builder" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 48px;">Start Prunging</a>
+</div>
+
+<div id="builder" class="container" style="padding: var(--spacing-lg) 0;">
+    <h2 style="text-align: center; margin-bottom: var(--spacing-md); font-weight: 300; font-size: 2.5rem;">CRAFT YOUR INHALER</h2>
+    
+    <div class="stepper" style="display: flex; justify-content: center; gap: var(--spacing-md); margin-bottom: var(--spacing-lg);">
+        <button class="step-btn active" data-step="1" style="background: none; border: none; color: var(--color-primary); font-size: 1.2rem; cursor: pointer;">1. Vessel</button>
+        <button class="step-btn" data-step="2" style="background: none; border: none; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer;">2. Soul</button>
+        <button class="step-btn" data-step="3" style="background: none; border: none; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer;">3. Signature</button>
+        <button class="step-btn" data-step="4" style="background: none; border: none; color: var(--color-text-muted); font-size: 1.2rem; cursor: pointer;">4. Personalize</button>
+    </div>
+
+    <!-- Step 1: Vessel -->
+    <div id="step-1" class="builder-step fade-in">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-sm);">Choose Your Vessel</h3>
+        <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-md);">Select the jar that matches your vibe.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md);">
+            <!-- Mock Items -->
+            <div class="option-card" onclick="selectOption('vessel', 'obsidian')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #333 0%, #000 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Obsidian Black</h4>
+                <p style="color: var(--color-accent);">+0 THB</p>
+            </div>
+            
+             <div class="option-card" onclick="selectOption('vessel', 'gold')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #e6b800 0%, #ffdf00 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Royal Gold</h4>
+                <p style="color: var(--color-accent);">+50 THB</p>
+            </div>
+
+            <div class="option-card" onclick="selectOption('vessel', 'pearl')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Pearl White</h4>
+                <p style="color: var(--color-accent);">+20 THB</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Step 2: Soul (Herbs) -->
+    <div id="step-2" class="builder-step fade-in" style="display: none;">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-sm);">Select Your Base</h3>
+        <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-md);">The foundation of your refreshment.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md);">
+            <div class="option-card" onclick="selectOption('soul', 'traditional')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Traditional Reform</h4>
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Balanced & Classic</p>
+                <p style="color: var(--color-accent);">Included</p>
+            </div>
+            
+            <div class="option-card" onclick="selectOption('soul', 'menthol')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Icy Menthol</h4>
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Sharp & Cooling</p>
+                <p style="color: var(--color-accent);">Included</p>
+            </div>
+
+            <div class="option-card" onclick="selectOption('soul', 'floral')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%); border-radius: 50%; margin: 0 auto var(--spacing-sm);"></div>
+                <h4>Wild Floral</h4>
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Sweet & Aromatic</p>
+                <p style="color: var(--color-accent);">+50 THB</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Signature (Scents) -->
+    <div id="step-3" class="builder-step fade-in" style="display: none;">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-sm);">Add Your Signature</h3>
+        <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--spacing-md);">Top notes to elevate the experience.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-md);">
+            <div class="option-card" onclick="toggleOption('scent', 'eucalyptus')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <h4>Eucalyptus</h4>
+                <p style="color: var(--color-accent);">+10 THB</p>
+            </div>
+            <div class="option-card" onclick="toggleOption('scent', 'peppermint')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <h4>Peppermint</h4>
+                <p style="color: var(--color-accent);">+10 THB</p>
+            </div>
+            <div class="option-card" onclick="toggleOption('scent', 'bergamot')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <h4>Bergamot</h4>
+                <p style="color: var(--color-accent);">+15 THB</p>
+            </div>
+            <div class="option-card" onclick="toggleOption('scent', 'clove')" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease;">
+                <h4>Clove</h4>
+                <p style="color: var(--color-accent);">+15 THB</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4: Personalize -->
+    <div id="step-4" class="builder-step fade-in" style="display: none;">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-sm);">Make It Yours</h3>
+        <div style="max-width: 400px; margin: 0 auto; background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius);">
+            <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                <label style="display: block; margin-bottom: var(--spacing-xs);">Name on Label (Max 10 chars)</label>
+                <input type="text" id="labelName" maxlength="10" placeholder="PRUNG DOM" style="width: 100%; padding: 12px; background: var(--color-bg); border: 1px solid var(--color-border); color: var(--color-text); border-radius: 8px;">
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="showCheckout()">Review Order</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal / Section -->
+    <div id="checkout-section" style="display: none; margin-top: var(--spacing-lg); border-top: 1px solid var(--color-border); padding-top: var(--spacing-md);">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-md);">Your Creation</h3>
+        <div id="order-summary" style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius); max-width: 500px; margin: 0 auto;">
+            <!-- Summary populated by JS -->
+        </div>
+        <div style="text-align: center; margin-top: var(--spacing-md);">
+            <button class="btn btn-primary" onclick="alert('Order Placed! Thank you for choosing PRUNG DOM.')">Confirm Order</button>
+        </div>
+    </div>
+
+<style>
+    .option-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--color-primary);
+    }
+    .step-btn.active {
+        color: var(--color-primary) !important;
+        font-weight: bold;
+        border-bottom: 2px solid var(--color-primary) !important;
+    }
+</style>
