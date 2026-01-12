@@ -55,7 +55,7 @@ public partial class SessionMultiviw_FormMain : System.Web.UI.Page
             Session["f1"] = txtTotal1.Text;
         if (ckTwo.Checked == true)
             Session["f2"] = txtTotal2.Text;
-        Server.Transfer("displaymulti.aspx");
+        Server.Transfer("http://localhost:64522/SessionMultiviw/displaymulti.aspx");
     }
 
     protected void Ck1_CheckedChanged(object sender, EventArgs e)
