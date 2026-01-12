@@ -1,0 +1,176 @@
+@page
+@model AromaSoulWeb.Pages.CheckoutModel
+@{
+    Layout = null; // Standalone page to match Index style
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | SoftScent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+</head>
+
+<body>
+    <!-- Navbar (Simplified for Checkout) -->
+    <nav class="glass-nav">
+        <div class="logo"><a href="/#hero" style="text-decoration:none; color:inherit;">SoftScent</a></div>
+        <div class="checkout-steps">
+            <span class="step active">1. Shipping</span>
+            <span class="step-line"></span>
+            <span class="step">2. Payment</span>
+        </div>
+        <div class="nav-right" style="display:flex; gap:1.5rem; align-items:center;">
+            <a href="/MyOrders" class="back-link">My Orders</a>
+            <a href="/#customizer" class="back-link">Back to Blending</a>
+        </div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="checkout-grid">
+            <!-- Left Column: Forms -->
+            <div class="form-section fade-in-up">
+                
+                <!-- Shipping Details -->
+                <div class="checkout-card glass-panel-light" id="shippingSection">
+                    <div class="card-header">
+                        <h3>Shipping Details</h3>
+                    </div>
+                    <form id="shippingForm">
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" required placeholder="Jane">
+                            </div>
+                            <div class="form-group half">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required placeholder="jane@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" required placeholder="123 Wellness Ave">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required placeholder="Los Angeles">
+                            </div>
+                            <div class="form-group quarter">
+                                <label for="state">State</label>
+                                <input type="text" id="state" required placeholder="CA">
+                            </div>
+                            <div class="form-group quarter">
+                                <label for="zip">Zip</label>
+                                <input type="text" id="zip" required placeholder="90001">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Details -->
+                <div class="checkout-card glass-panel-light mt-2" id="paymentSection">
+                    <div class="card-header">
+                        <h3>Payment Method</h3>
+                    </div>
+                    <form id="paymentForm">
+                        <div class="payment-selector">
+                            <div class="payment-option selected" data-method="card">
+                                <input type="radio" name="paymentInfo" checked>
+                                <span>Credit Card</span>
+                            </div>
+                            <div class="payment-option" data-method="paypal">
+                                <input type="radio" name="paymentInfo">
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+
+                        <div class="credit-card-fields">
+                            <div class="form-group">
+                                <label for="cardNum">Card Number</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="cardNum" placeholder="0000 0000 0000 0000" maxlength="19">
+                                    <span class="icon">💳</span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group half">
+                                    <label for="cvc">CVC</label>
+                                    <input type="text" id="cvc" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name</label>
+                                <input type="text" id="cardName" placeholder="Name on card">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="summary-section fade-in-up" style="animation-delay: 0.2s;">
+                <div class="checkout-card glass-panel-dark">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="order-items" id="orderItems">
+                        <!-- Items injected via JS -->
+                        <div class="loading-spinner">Loading cart...</div>
+                    </div>
+
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Subtotal</span>
+                            <span id="subtotalDisplay">$0.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Shipping</span>
+                            <span id="shippingDisplay">Free</span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span id="totalDisplay">$0.00</span>
+                        </div>
+                    </div>
+
+                    <button id="placeOrderBtn" class="cta-btn-main full-width">
+                        Confirm Payment
+                    </button>
+                    
+                    <p class="secure-notice">🔒 Secure 256-bit SSL Encrypted Payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-modal">
+            <div class="success-icon">✨</div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Nature's wisdom is on its way to you.</p>
+            <p class="order-id">Order #<span id="orderId"></span></p>
+            <a href="/" class="cta-btn-main">Return Home</a>
+        </div>
+    </div>
+
+    <script src="~/js/checkout.js"></script>
+</body>
+</html>

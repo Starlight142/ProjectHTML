@@ -1,3 +1,7 @@
+﻿@page
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 
 <body>
@@ -19,6 +23,7 @@
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">Essence</a></li>
+            <li><a href="/MyOrders" class="nav-item">My Orders</a></li>
             <li><a href="#customizer" class="cta-btn-small">Create Blend</a></li>
         </ul>
     </nav>
@@ -86,6 +91,9 @@
                             <div class="fill" style="width: 0%"></div>
                         </div>
                     </div>
+                    <div class="blend-name-input">
+                        <input type="text" id="blendName" placeholder="Name your creation..." maxlength="25">
+                    </div>
                     <button id="addToCart" class="cta-btn-main" disabled>Add to Cart - $12.00</button>
                 </div>
             </div>
@@ -122,7 +130,7 @@
         <p>&copy; 2025 SoftScent. Breathe Well.</p>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="~/js/main.js"></script>
 </body>
 
 </html>

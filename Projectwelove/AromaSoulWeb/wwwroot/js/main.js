@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addToCartBtn.addEventListener('click', addItemToCart);
     document.querySelector('.checkout-btn').addEventListener('click', () => {
-        window.location.href = window.location.pathname.includes('AromaSoulWeb') ? '/Checkout' : 'checkout.html';
+        // Simple routing check
+        window.location.href = '/Checkout';
     });
     updateCartUI();
 });
@@ -54,11 +55,18 @@ function toggleCart() {
 function addItemToCart() {
     if (selectedHerbs.length === 0) return;
 
+    const nameInput = document.getElementById('blendName');
+    const customName = nameInput.value.trim() || 'Custom Blend';
+
     const blendItem = {
         id: Date.now(), // Unique ID
+        name: customName,
         herbs: [...selectedHerbs],
         price: 12.00
     };
+
+    // Reset input
+    nameInput.value = '';
 
     cart.push(blendItem);
     saveCart();
@@ -91,16 +99,27 @@ function updateCartUI() {
         const itemEl = document.createElement('div');
         itemEl.className = 'cart-item';
         itemEl.innerHTML = `
-            <div class="cart-item-details">
-                <h4>Custom Blend</h4>
-                <div class="cart-item-ingredients">${herbNames}</div>
+            <div class="cart-item-info">
+                <div class="cart-item-details">
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-ingredients">${herbNames}</div>
+                </div>
+                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
             </div>
-            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <button class="cart-remove-btn" onclick="removeItemFromCart(${item.id})">×</button>
         `;
         cartItemsContainer.appendChild(itemEl);
     });
 
     cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+
+window.removeItemFromCart = function (id) {
+    const index = cart.findIndex(item => item.id === id);
+    if (index > -1) {
+        cart.splice(index, 1);
+        updateCartUI();
+    }
 }
 
 function setupFilters() {
