@@ -16,10 +16,6 @@
             text-align: center;
             background-color: #FFCCFF;
         }
-        .auto-style6 {
-            width: 392px;
-            background-color: #FFCCFF;
-        }
         .auto-style7 {
             text-align: center;
             width: 182px;
@@ -53,6 +49,9 @@
             height: 26px;
             background-color: #CCFFCC;
         }
+        .auto-style17 {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +67,7 @@
         </div>
         <asp:MultiView ID="MultiView1" runat="server">
             <asp:View ID="Meat" runat="server">
-                <table style="width:100%;">
+                <table class="auto-style17">
                       <tr>
                         <td class="auto-style5">รายการอาหาร</td>
                         <td class="auto-style7">ราคา</td>

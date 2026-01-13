@@ -11,8 +11,8 @@ public partial class Multiview_FormMain : System.Web.UI.Page
     int price2 = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["f1"] = 0;
-        Session["f2"] = 0;
+            Session["f1"] = 0;
+            Session["f2"] = 0;
     }
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
