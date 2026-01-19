@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProjectHTML\\AromaSoulWeb\\AromaSoulWeb.csproj": {}
+    "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj": {}
   },
   "projects": {
-    "E:\\ProjectHTML\\AromaSoulWeb\\AromaSoulWeb.csproj": {
+    "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProjectHTML\\AromaSoulWeb\\AromaSoulWeb.csproj",
+        "projectUniqueName": "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj",
         "projectName": "AromaSoulWeb",
-        "projectPath": "E:\\ProjectHTML\\AromaSoulWeb\\AromaSoulWeb.csproj",
+        "projectPath": "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj",
         "packagesPath": "C:\\Users\\_muxio\\.nuget\\packages\\",
-        "outputPath": "E:\\ProjectHTML\\AromaSoulWeb\\obj\\",
+        "outputPath": "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
