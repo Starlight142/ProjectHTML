@@ -13,9 +13,9 @@ function loadCart() {
     orderItemsContainer.innerHTML = '';
 
     if (cart.length === 0) {
-        orderItemsContainer.innerHTML = '<div class="empty-state">Your cart is empty.</div>';
-        subtotalDisplay.textContent = '$0.00';
-        totalDisplay.textContent = '$0.00';
+        orderItemsContainer.innerHTML = '<div class="empty-state">ตะกร้าของคุณว่างเปล่า</div>';
+        subtotalDisplay.textContent = '฿0.00';
+        totalDisplay.textContent = '฿0.00';
         placeOrderBtn.disabled = true;
         // Optionally redirect back
         // window.location.href = '/';
@@ -28,7 +28,7 @@ function loadCart() {
         subtotal += item.price;
         const herbNames = item.herbs && Array.isArray(item.herbs)
             ? item.herbs.map(h => h.name).join(', ')
-            : 'Custom Blend';
+            : 'สูตรผสมพิเศษ';
 
         const itemEl = document.createElement('div');
         itemEl.className = 'summary-item';
@@ -37,27 +37,76 @@ function loadCart() {
                 <h4>${item.name}</h4>
                 <div class="summary-item-sub">${herbNames}</div>
             </div>
-            <div class="summary-item-price">$${item.price.toFixed(2)}</div>
+            <div class="summary-item-price">฿${item.price.toFixed(2)}</div>
         `;
         orderItemsContainer.appendChild(itemEl);
     });
 
-    subtotalDisplay.textContent = `$${subtotal.toFixed(2)}`;
-    totalDisplay.textContent = `$${subtotal.toFixed(2)}`; // Assuming free shipping
+    subtotalDisplay.textContent = `฿${subtotal.toFixed(2)}`;
+    totalDisplay.textContent = `฿${subtotal.toFixed(2)}`; // Assuming free shipping
 }
 
 function setupInputs() {
     // Payment Method Toggle
     const paymentOptions = document.querySelectorAll('.payment-option');
+    const cardFields = document.getElementById('card-fields');
+    const qrFields = document.getElementById('qr-fields');
+    const paypalFields = document.getElementById('paypal-fields');
+
     paymentOptions.forEach(opt => {
         opt.addEventListener('click', () => {
+            // UI Toggle
             paymentOptions.forEach(p => p.classList.remove('selected'));
             paymentOptions.forEach(p => p.querySelector('input').checked = false);
 
             opt.classList.add('selected');
-            opt.querySelector('input').checked = true;
+            const radio = opt.querySelector('input');
+            radio.checked = true;
+
+            // Section Visibility Toggle
+            const method = opt.dataset.method;
+            if (method === 'card') {
+                cardFields.style.display = 'block';
+                qrFields.style.display = 'none';
+                paypalFields.style.display = 'none';
+            } else if (method === 'qr') {
+                cardFields.style.display = 'none';
+                qrFields.style.display = 'block';
+                paypalFields.style.display = 'none';
+                startQrTimer();
+            } else if (method === 'paypal') {
+                cardFields.style.display = 'none';
+                qrFields.style.display = 'none';
+                paypalFields.style.display = 'block';
+            }
         });
     });
+
+    let timerInterval;
+    function startQrTimer() {
+        const timerDisplay = document.getElementById('paymentTimer');
+        if (!timerDisplay) return;
+
+        // Reset if already running
+        if (timerInterval) clearInterval(timerInterval);
+
+        let duration = 60 * 15; // 15 minutes
+
+        function updateDisplay() {
+            const minutes = Math.floor(duration / 60);
+            const seconds = duration % 60;
+            timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (--duration < 0) {
+                clearInterval(timerInterval);
+                timerDisplay.textContent = "หมดเวลา";
+                alert("QR Code หมดอายุ กรุณารีเฟรชเพื่อทำรายการใหม่");
+            }
+        }
+
+        updateDisplay();
+        timerInterval = setInterval(updateDisplay, 1000);
+    }
 
     // Formatting for Credit Card
     const cardNum = document.getElementById('cardNum');
@@ -98,12 +147,12 @@ function setupInputs() {
         });
 
         if (!valid) {
-            alert('Please fill in all shipping fields.');
+            alert('กรุณากรอกข้อมูลการจัดส่งให้ครบถ้วน');
             return;
         }
 
         // Simulate Processing
-        placeOrderBtn.textContent = 'Processing...';
+        placeOrderBtn.textContent = 'กำลังดำเนินการ...';
         placeOrderBtn.disabled = true;
 
         setTimeout(() => {

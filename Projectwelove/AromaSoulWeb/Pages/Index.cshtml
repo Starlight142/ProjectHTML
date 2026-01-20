@@ -3,12 +3,12 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoftScent | Custom Herbal Inhalers</title>
+    <title>SoftScent | ยาดมสมุนไพรปรุงเอง</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,18 +21,18 @@
     <nav class="glass-nav">
         <div class="logo">SoftScent</div>
         <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">Essence</a></li>
-            <li><a href="/MyOrders" class="nav-item">My Orders</a></li>
-            <li><a href="#customizer" class="cta-btn-small">Create Blend</a></li>
+            <li><a href="#hero">หน้าหลัก</a></li>
+            <li><a href="#about">ความหอม</a></li>
+            <li><a href="/MyOrders" class="nav-item">รายการสั่งซื้อของฉัน</a></li>
+            <li><a href="#customizer" class="cta-btn-small">ปรุงกลิ่น</a></li>
         </ul>
     </nav>
 
     <section id="hero" class="hero-section">
         <div class="hero-content">
-            <h1>Breathe in <br> <span>Nature's Wisdom</span></h1>
-            <p>Craft your personal herbal inhaler for relief, focus, and serenity.</p>
-            <a href="#customizer" class="cta-btn-main">Start Blending</a>
+            <h1>สูดรับ <br> <span>ภูมิปัญญาแห่งธรรมชาติ</span></h1>
+            <p>สร้างสรรค์ยาดมสมุนไพรในแบบของคุณ เพื่อความผ่อนคลาย มีสมาธิ และความสงบ</p>
+            <a href="#customizer" class="cta-btn-main">เริ่มปรุงกลิ่น</a>
         </div>
         <div class="hero-visual">
             <div class="floating-circle circle-1"></div>
@@ -42,26 +42,25 @@
 
     <section id="about" class="about-section">
         <div class="container">
-            <h2>The Art of Inhalation</h2>
-            <p>Ancient remedies meets modern customization. Select from premium organic herbs, not limited to
-                traditional Thai spices. Lavender, Peppermint, Eucalyptus, and more.</p>
+            <h2>ศิลปะแห่งการสูดดม</h2>
+            <p>ศาสตร์โบราณผสานการปรับแต่งที่ทันสมัย เลือกสมุนไพรออร์แกนิกเกรดพรีเมียม ไม่จำกัดเพียงสมุนไพรไทยดั้งเดิม แต่รวมถึงลาเวนเดอร์ เปปเปอร์มินต์ ยูคาลิปตัส และอื่นๆ อีกมากมาย</p>
         </div>
     </section>
 
     <section id="customizer" class="customizer-section">
         <div class="container">
             <div class="customizer-header">
-                <h2>Design Your Scent</h2>
-                <p>Select your base herbs and enhancements.</p>
+                <h2>ออกแบบกลิ่นของคุณ</h2>
+                <p>เลือกสมุนไพรพื้นฐานและกลิ่นปรุงแต่งที่ต้องการ</p>
             </div>
 
             <div class="customizer-interface glass-panel">
                 <div class="symptom-filter">
-                    <span>I want to feel:</span>
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="relaxed">Relaxed</button>
-                    <button class="filter-btn" data-filter="energized">Energized</button>
-                    <button class="filter-btn" data-filter="relief">Relief</button>
+                    <span>ฉันอยากรู้สึก:</span>
+                    <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                    <button class="filter-btn" data-filter="relaxed">ผ่อนคลาย</button>
+                    <button class="filter-btn" data-filter="energized">สดชื่น</button>
+                    <button class="filter-btn" data-filter="relief">โล่งจมูก</button>
                 </div>
 
                 <div class="selection-area">
@@ -75,16 +74,16 @@
                         <div class="inhaler-cap"></div>
                         <div class="inhaler-body" id="inhalerBody">
                             <!-- Visual layers injected here -->
-                            <div class="inhaler-empty-text">Empty</div>
+                            <div class="inhaler-empty-text">ว่าง</div>
                         </div>
                         <div class="inhaler-base"></div>
                     </div>
                 </div>
 
                 <div class="blend-summary">
-                    <h3>Your Blend</h3>
+                    <h3>ส่วนผสมของคุณ</h3>
                     <ul id="blendList">
-                        <li class="empty-state">Select herbs to begin...</li>
+                        <li class="empty-state">เลือกสมุนไพรเพื่อเริ่มต้น...</li>
                     </ul>
                     <div class="blend-stats">
                         <div class="stat-bar">
@@ -92,9 +91,9 @@
                         </div>
                     </div>
                     <div class="blend-name-input">
-                        <input type="text" id="blendName" placeholder="Name your creation..." maxlength="25">
+                        <input type="text" id="blendName" placeholder="ตั้งชื่อผลงานของคุณ..." maxlength="25">
                     </div>
-                    <button id="addToCart" class="cta-btn-main" disabled>Add to Cart - $12.00</button>
+                    <button id="addToCart" class="cta-btn-main" disabled>ใส่ตะกร้า - ฿390</button>
                 </div>
             </div>
         </div>
@@ -110,24 +109,24 @@
 
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-header">
-            <h3>Your Collection</h3>
+            <h3>ตะกร้าของคุณ</h3>
             <button class="close-cart" id="closeCart">×</button>
         </div>
         <div class="cart-items" id="cartItems">
             <!-- Cart items injected here -->
-            <div class="empty-cart-msg">Your cart is empty.</div>
+            <div class="empty-cart-msg">ตะกร้าของคุณว่างเปล่า</div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0.00</span>
+                <span>รวม:</span>
+                <span id="cartTotal">฿0.00</span>
             </div>
-            <button class="cta-btn-main checkout-btn">Checkout</button>
+            <button class="cta-btn-main checkout-btn">ชำระเงิน</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 SoftScent. Breathe Well.</p>
+        <p>&copy; 2025 SoftScent. หายใจสะดวก สุขภาพดี</p>
     </footer>
 
     <script src="~/js/main.js"></script>

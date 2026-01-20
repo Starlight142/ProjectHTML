@@ -1,12 +1,12 @@
 const herbs = [
-    { id: 1, name: 'Peppermint', type: 'energized', icon: '🌿', benefits: 'Cooling, Focus', color: '#81C784' },
-    { id: 2, name: 'Lavender', type: 'relaxed', icon: '🌸', benefits: 'Calming, Sleep', color: '#9FA8DA' },
-    { id: 3, name: 'Eucalyptus', type: 'relief', icon: '🍃', benefits: 'Sinus Relief', color: '#4DB6AC' },
-    { id: 4, name: 'Bergamot', type: 'energized', icon: '🍋', benefits: 'Uplifting', color: '#FFF59D' },
-    { id: 5, name: 'Chamomile', type: 'relaxed', icon: '🌼', benefits: 'Soothing', color: '#FFE082' },
-    { id: 6, name: 'Lemongrass', type: 'relief', icon: '🌱', benefits: 'Refresh, Pain', color: '#CDCDC0' },
-    { id: 7, name: 'Rosemary', type: 'energized', icon: '🌲', benefits: 'Memory', color: '#A5D6A7' },
-    { id: 8, name: 'Clove', type: 'relief', icon: '🌰', benefits: 'Warming', color: '#D7CCC8' },
+    { id: 1, name: 'เปปเปอร์มินต์', type: 'energized', icon: '🌿', benefits: 'เย็นสดชื่น, มีสมาธิ', color: '#81C784' },
+    { id: 2, name: 'ลาเวนเดอร์', type: 'relaxed', icon: '🌸', benefits: 'สงบ, ช่วยการนอนหลับ', color: '#9FA8DA' },
+    { id: 3, name: 'ยูคาลิปตัส', type: 'relief', icon: '🍃', benefits: 'โล่งจมูก', color: '#4DB6AC' },
+    { id: 4, name: 'มะกรูด', type: 'energized', icon: '🍋', benefits: 'สดชื่นกระปรี้กระเปร่า', color: '#FFF59D' },
+    { id: 5, name: 'คาโมมายล์', type: 'relaxed', icon: '🌼', benefits: 'ผ่อนคลาย', color: '#FFE082' },
+    { id: 6, name: 'ตะไคร้', type: 'relief', icon: '🌱', benefits: 'สดชื่น, บรรเทาปวด', color: '#CDCDC0' },
+    { id: 7, name: 'โรสแมรี่', type: 'energized', icon: '🌲', benefits: 'ช่วยความจำ', color: '#A5D6A7' },
+    { id: 8, name: 'กานพลู', type: 'relief', icon: '🌰', benefits: 'อบอุ่น', color: '#D7CCC8' },
 ];
 
 let selectedHerbs = [];
@@ -56,13 +56,13 @@ function addItemToCart() {
     if (selectedHerbs.length === 0) return;
 
     const nameInput = document.getElementById('blendName');
-    const customName = nameInput.value.trim() || 'Custom Blend';
+    const customName = nameInput.value.trim() || 'สูตรผสมพิเศษ';
 
     const blendItem = {
         id: Date.now(), // Unique ID
         name: customName,
         herbs: [...selectedHerbs],
-        price: 12.00
+        price: 390
     };
 
     // Reset input
@@ -84,8 +84,8 @@ function updateCartUI() {
     cartCount.textContent = cart.length;
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty.</div>';
-        cartTotal.textContent = '$0.00';
+        cartItemsContainer.innerHTML = '<div class="empty-cart-msg">ตะกร้าของคุณว่างเปล่า</div>';
+        cartTotal.textContent = '฿0.00';
         return;
     }
 
@@ -104,14 +104,14 @@ function updateCartUI() {
                     <h4>${item.name}</h4>
                     <div class="cart-item-ingredients">${herbNames}</div>
                 </div>
-                <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                <div class="cart-item-price">฿${item.price.toFixed(2)}</div>
             </div>
             <button class="cart-remove-btn" onclick="removeItemFromCart(${item.id})">×</button>
         `;
         cartItemsContainer.appendChild(itemEl);
     });
 
-    cartTotal.textContent = `$${total.toFixed(2)}`;
+    cartTotal.textContent = `฿${total.toFixed(2)}`;
 }
 
 window.removeItemFromCart = function (id) {
@@ -167,7 +167,7 @@ function toggleHerb(herb) {
     } else {
         // Add
         if (selectedHerbs.length >= MAX_SELECTION) {
-            alert(`You can only select up to ${MAX_SELECTION} herbs for your blend.`);
+            alert(`คุณสามารถเลือกสมุนไพรได้สูงสุด ${MAX_SELECTION} ชนิด`);
             return;
         }
         selectedHerbs.push(herb);
@@ -184,7 +184,7 @@ function updateInhalerVisuals() {
     inhalerBody.innerHTML = '';
 
     if (selectedHerbs.length === 0) {
-        inhalerBody.innerHTML = '<div class="inhaler-empty-text">Empty</div>';
+        inhalerBody.innerHTML = '<div class="inhaler-empty-text">ว่าง</div>';
         return;
     }
 
@@ -204,9 +204,9 @@ function updateBlendSummary() {
     blendList.innerHTML = '';
 
     if (selectedHerbs.length === 0) {
-        blendList.innerHTML = '<li class="empty-state">Select up to 3 herbs...</li>';
+        blendList.innerHTML = '<li class="empty-state">เลือกสมุนไพรอย่างน้อย 1 ชนิด (สูงสุด 3)...</li>';
         addToCartBtn.disabled = true;
-        addToCartBtn.textContent = 'Add to Cart - $12.00';
+        addToCartBtn.textContent = 'ใส่ตะกร้า - ฿390';
     } else {
         selectedHerbs.forEach(herb => {
             const li = document.createElement('li');
@@ -219,10 +219,10 @@ function updateBlendSummary() {
 
         addToCartBtn.disabled = false;
         // Simple price logic
-        const basePrice = 12;
-        const total = basePrice + (selectedHerbs.length * 2); // adding complexity adds cost? Just placeholder logic. 
+        const basePrice = 390;
+        // const total = basePrice + (selectedHerbs.length * 2); 
         // Actually let's keep it flat price for simplicity or custom logic
-        addToCartBtn.textContent = `Add Blend to Cart`;
+        addToCartBtn.textContent = `เพิ่มส่วนผสมลงตะกร้า`;
     }
 }
 

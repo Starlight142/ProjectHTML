@@ -304,3 +304,49 @@ input:focus {
 }
 
 .mt-2 { margin-top: 2rem; }
+
+/* QR Payment Styles */
+.qr-payment-container {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px dashed #ccc;
+}
+
+.qr-header p {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.qr-code-box {
+    margin: 1.5rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.qr-instructions {
+    margin-top: 1rem;
+}
+
+.small-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.timer-warning {
+    color: #d9534f;
+    font-weight: 600;
+    background: #fdf2f2;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+.paypal-info {
+    color: var(--text-light);
+    font-style: italic;
+}

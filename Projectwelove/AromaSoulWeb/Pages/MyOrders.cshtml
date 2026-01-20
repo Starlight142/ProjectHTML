@@ -4,12 +4,13 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="th">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Orders | SoftScent</title>
+    <title>รายการสั่งซื้อของฉัน | SoftScent</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -143,21 +144,21 @@
     <nav class="glass-nav">
         <div class="logo"><a href="/#hero" style="text-decoration:none; color:inherit;">SoftScent</a></div>
         <ul class="nav-links">
-            <li><a href="/#hero">Home</a></li>
-            <li><a href="/#customizer">Create Blend</a></li>
-            <li><a href="#" class="active">My Orders</a></li>
+            <li><a href="/#hero">หน้าหลัก</a></li>
+            <li><a href="/#customizer">ปรุงกลิ่น</a></li>
+            <li><a href="#" class="active">รายการสั่งซื้อของฉัน</a></li>
         </ul>
     </nav>
 
     <div class="orders-container">
         <div class="page-header">
-            <h1>Your Order History</h1>
-            <p>Track your past journeys into scent.</p>
+            <h1>ประวัติการสั่งซื้อ</h1>
+            <p>ติดตามเส้นทางความหอมของคุณ</p>
         </div>
 
         <div id="ordersList">
             <!-- Orders injected via JS -->
-            <div class="loading-spinner" style="text-align:center;">Loading...</div>
+            <div class="loading-spinner" style="text-align:center;">กำลังโหลด...</div>
         </div>
     </div>
 
@@ -169,8 +170,8 @@
             if (orders.length === 0) {
                 ordersList.innerHTML = `
                     <div class="empty-history">
-                        <p>You haven't placed any orders yet.</p>
-                        <a href="/#customizer" class="cta-btn-main">Start Blending</a>
+                        <p>คุณยังไม่มีคำสั่งซื้อ</p>
+                        <a href="/#customizer" class="cta-btn-main">เริ่มปรุงกลิ่น</a>
                     </div>
                 `;
                 return;
@@ -178,20 +179,20 @@
 
             ordersList.innerHTML = '';
             orders.forEach((order, index) => {
-                const date = new Date(order.date).toLocaleDateString('en-US', {
+                const date = new Date(order.date).toLocaleDateString('th-TH', {
                     year: 'numeric', month: 'long', day: 'numeric'
                 });
                 
                 let itemsHtml = '';
                 order.items.forEach(item => {
-                    const herbNames = item.herbs ? item.herbs.map(h => h.name).join(', ') : 'Custom Blend';
+                    const herbNames = item.herbs ? item.herbs.map(h => h.name).join(', ') : 'สูตรผสมพิเศษ';
                     itemsHtml += `
                         <div class="order-item">
                             <div>
                                 <div class="item-name">${item.name}</div>
                                 <div class="item-details">${herbNames}</div>
                             </div>
-                            <div class="item-price">$${item.price.toFixed(2)}</div>
+                            <div class="item-price">฿${item.price.toFixed(2)}</div>
                         </div>
                     `;
                 });
@@ -201,15 +202,15 @@
                 div.style.animationDelay = `${index * 0.1}s`;
                 div.innerHTML = `
                     <div class="order-header">
-                        <span class="order-id">Order #${order.id}</span>
+                        <span class="order-id">คำสั่งซื้อ #${order.id}</span>
                         <span class="order-date">${date}</span>
                     </div>
                     <div class="order-items-list">
                         ${itemsHtml}
                     </div>
                     <div class="order-footer">
-                        <div class="status-badge">Processing</div>
-                        <div class="order-total">$${order.total.toFixed(2)}</div>
+                        <div class="status-badge">กำลังดำเนินการ</div>
+                        <div class="order-total">฿${order.total.toFixed(2)}</div>
                     </div>
                 `;
                 ordersList.appendChild(div);

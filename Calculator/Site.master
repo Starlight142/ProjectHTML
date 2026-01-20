@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Calculator System</title>  <link href="Style.css" rel="stylesheet" />
+</head>
+<body>
+    <form runat="server">
+        <!-- HEADER -->
+        <div id="header">
+            <h2>ระบบคำนวณเกรด</h2>
+        </div>
+
+        <!-- MENU -->
+        <div id="menu">
+            <ul class="nav">
+                <li><a href="~/GradeCal.aspx" runat="server">Home</a></li>
+
+                <li>
+                    <a href="~/GradeCal.aspx" runat="server">เครื่องมือ</a>
+                    <ul>
+                        <li><a href="~/GradeCal.aspx" runat="server">คำนวณเกรด</a></li>
+                        <li><a href="~/Assignment4.aspx" runat="server">คำนวณส่วนสูง</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="~/GradeCal.aspx" runat="server">About</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTENT -->
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </form>
+</body>
+</html>
