@@ -1,0 +1,68 @@
+@model Softscent.Models.Order
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="mb-4">Shipping & Payment</h2>
+            <div class="card p-4">
+                <form asp-action="Checkout" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    
+                    <h4 class="mb-3">Shipping Address</h4>
+                    <div class="mb-3">
+                        <label asp-for="ShippingAddress" class="form-label">Address</label>
+                        <textarea asp-for="ShippingAddress" class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <h4 class="mb-3 mt-5">Payment Method</h4>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="PaymentMethod" id="credit" value="Credit Card" checked>
+                        <label class="form-check-label" for="credit">
+                            Credit Card
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="PaymentMethod" id="paypal" value="PayPal">
+                        <label class="form-check-label" for="paypal">
+                            PayPal
+                        </label>
+                    </div>
+                     <div class="form-check mb-4">
+                        <input class="form-check-input" type="radio" name="PaymentMethod" id="cod" value="Cash on Delivery">
+                        <label class="form-check-label" for="cod">
+                            Cash on Delivery
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Complete Order</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your Cart</span>
+                <span class="badge bg-primary rounded-pill">@Model.OrderDetails.Count</span>
+            </h4>
+            <ul class="list-group mb-3 box-shadow">
+                @foreach(var item in Model.OrderDetails)
+                {
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">@item.Product.Name</h6>
+                            <small class="text-muted">Qty: @item.Quantity</small>
+                        </div>
+                        <span class="text-muted">@((item.UnitPrice * item.Quantity).ToString("C"))</span>
+                    </li>
+                }
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>@Model.OrderDetails.Sum(x => x.UnitPrice * x.Quantity).ToString("C")</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

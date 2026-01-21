@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="hero-section">
+    <h1 class="hero-title">Breathe Nature, Feel Relaxed</h1>
+    <p class="hero-subtitle">Premium herbal inhalers customized just for you.</p>
+    <a asp-controller="Products" asp-action="Custom" class="btn btn-primary btn-lg">Create Your Own Scent</a>
+    <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary btn-lg ms-3">Shop Collection</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 text-center">
+        <div class="card p-4">
+            <i class="fas fa-leaf feature-icon"></i>
+            <h3>100% Natural</h3>
+            <p>Made from pure essential oils and organic herbs.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <div class="card p-4">
+            <i class="fas fa-flask feature-icon"></i>
+            <h3>Custom Blends</h3>
+            <p>Choose your ingredients to match your mood.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center">
+        <div class="card p-4">
+            <i class="fas fa-shipping-fast feature-icon"></i>
+            <h3>Fast Delivery</h3>
+            <p>Freshly mixed and shipped to your door.</p>
+        </div>
+    </div>
+</div>
