@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AromaSoulWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54dd055545804fe5f9ae293504f842d7a6d62202")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cc973ae7d75062d3fd4586e0c17e72e33355156")]
->>>>>>> 033b9284f0a48b967e92d5e65c982a617ec4a390
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c64ff5ca97c932cc8004c89332d07c9e39d0a602")]
 [assembly: System.Reflection.AssemblyProductAttribute("AromaSoulWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AromaSoulWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

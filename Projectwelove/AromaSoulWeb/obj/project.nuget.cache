@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "IKVyWANedMY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Documents\\ProjectHtml\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj",
-=======
-  "dgSpecHash": "D2F3+1nLSNY=",
-  "success": true,
-  "projectFilePath": "F:\\ProjectHTML\\Projectwelove\\AromaSoulWeb\\AromaSoulWeb.csproj",
->>>>>>> 033b9284f0a48b967e92d5e65c982a617ec4a390
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,2 +1,0 @@
-- [x] Modify Button1_Click in ConvertCurrency.aspx.cs to calculate converted amount based on selected currency and store in Session
-- [x] Modify Page_Load in YourCurrency.aspx.cs to retrieve and display the converted amount and currency
