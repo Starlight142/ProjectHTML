@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36631.11
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Softscent_legacy", "Softscent_legacy\", "{B4871CB8-A609-4ACF-8F93-CB20091BCF23}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63651"
+		Debug.AspNetCompiler.PhysicalPath = "Softscent_legacy\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63651\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63651"
+		Release.AspNetCompiler.PhysicalPath = "Softscent_legacy\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63651\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63651"
+		SlnRelativePath = "Softscent_legacy\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4871CB8-A609-4ACF-8F93-CB20091BCF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4871CB8-A609-4ACF-8F93-CB20091BCF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD966B02-C25D-4B78-9A92-BEFA396CCF73}
+	EndGlobalSection
+EndGlobal

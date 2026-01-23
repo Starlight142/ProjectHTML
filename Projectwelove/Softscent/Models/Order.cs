@@ -19,7 +19,9 @@ public class Order
     
     // Shipping Details (snapshot of user address or custom)
     public string ShippingAddress { get; set; } = string.Empty;
-    public string PaymentMethod { get; set; } = "Credit Card"; // simplified
+    public string ShippingMethod { get; set; } = "Standard"; // Standard, Express
+    public string PaymentMethod { get; set; } = "Credit Card"; 
+    public string PaymentStatus { get; set; } = "Pending"; // Pending, Paid
 
     public List<OrderDetail> OrderDetails { get; set; } = new();
 }

@@ -148,15 +148,20 @@ public class CartController : Controller
             order.Status = "Completed";
             order.ShippingAddress = orderDto.ShippingAddress;
             order.PaymentMethod = orderDto.PaymentMethod;
-            order.OrderDate = DateTime.Now;
+            order.ShippingMethod = orderDto.ShippingMethod;
             
-             // Calculate Total
-             // This should be done properly but good enough for demo
-             // Actually Price is in OrderDetails. 
-             // Total should be sum. 
-             
-             // We'll update the total before saving
-             // order.TotalAmount = ... (re-calculate from DB details)
+            // Set Payment Status based on method
+            if (order.PaymentMethod == "Cash on Delivery")
+            {
+                order.PaymentStatus = "Pending";
+            }
+            else
+            {
+                // Simulate immediate payment for others
+                order.PaymentStatus = "Paid";
+            }
+
+            order.OrderDate = DateTime.Now;
         }
         
         await _context.SaveChangesAsync();
