@@ -30,28 +30,44 @@
 
                     <div class="mb-4">
                         <span class="h2 text-primary fw-bold">$<asp:Literal ID="litPrice" runat="server"></asp:Literal>
-                            </span>
+                        </span>
                     </div>
 
                     <div class="d-flex gap-3 mb-5">
                         <div class="input-group" style="width: 140px;">
-                            <button class="btn btn-outline-secondary" type="button">-</button>
-                            <input type="text" class="form-control text-center" value="1">
-                            <button class="btn btn-outline-secondary" type="button">+</button>
+                            <button class="btn btn-outline-secondary" type="button" onclick="decrementQty()">-</button>
+                            <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control text-center" Text="1">
+                            </asp:TextBox>
+                            <button class="btn btn-outline-secondary" type="button" onclick="incrementQty()">+</button>
                         </div>
-                        <button class="btn btn-primary btn-lg rounded-pill px-5 flex-grow-1">Add to Cart</button>
                     </div>
 
-                    <div class="card bg-light border-0 p-3 mb-4">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-shipping-fast fa-2x text-muted me-3"></i>
-                            <div>
-                                <h6 class="mb-0">Fast Shipping</h6>
-                                <small class="text-muted">Delivery in 2-3 business days.</small>
-                            </div>
+                    <script>
+                        function incrementQty() {
+                            var qty = document.getElementById('<%= txtQuantity.ClientID %>');
+                            qty.value = parseInt(qty.value) + 1;
+                        }
+                        function decrementQty() {
+                            var qty = document.getElementById('<%= txtQuantity.ClientID %>');
+                            if (parseInt(qty.value) > 1) {
+                                qty.value = parseInt(qty.value) - 1;
+                            }
+                        }
+                    </script>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart"
+                        CssClass="btn btn-primary btn-lg rounded-pill px-5 flex-grow-1" OnClick="btnAddToCart_Click" />
+                </div>
+
+                <div class="card bg-light border-0 p-3 mb-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-shipping-fast fa-2x text-muted me-3"></i>
+                        <div>
+                            <h6 class="mb-0">Fast Shipping</h6>
+                            <small class="text-muted">Delivery in 2-3 business days.</small>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </asp:Content>

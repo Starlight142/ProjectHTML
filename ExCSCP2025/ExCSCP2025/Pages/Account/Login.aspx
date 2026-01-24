@@ -22,6 +22,8 @@
             <br />
             <br />
             <asp:Label ID="lblError" runat="server"></asp:Label>
+            <br />
+            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Pages/Account/Registration.aspx">Register</asp:LinkButton>
         </td>
         <td>&nbsp;</td>
     </tr>

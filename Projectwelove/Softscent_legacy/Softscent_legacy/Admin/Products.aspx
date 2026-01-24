@@ -22,8 +22,8 @@
                     <ItemTemplate>
                         <tr>
                             <td style="width: 100px;">
-                                <img src='<%# Eval("ImageUrl") %>' style="width: 60px; height: 60px; object-fit: cover;"
-                                    class="rounded" />
+                                <img src='<%# ResolveUrl("~/" + Eval("ImageUrl")) %>'
+                                    style="width: 60px; height: 60px; object-fit: cover;" class="rounded" />
                             </td>
                             <td>
                                 <h6 class="mb-0">

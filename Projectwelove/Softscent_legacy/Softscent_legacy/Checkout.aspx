@@ -11,35 +11,28 @@
                         <h4 class="mb-4">Shipping Information</h4>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
-                            <textarea class="form-control" rows="3" placeholder="Enter your full address"></textarea>
+                            <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" TextMode="MultiLine"
+                                Rows="3" placeholder="Enter your full address"></asp:TextBox>
                         </div>
 
                         <h4 class="mt-5 mb-3">Shipping Method</h4>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="Ship" id="std" checked />
-                            <label class="form-check-label" for="std">Standard Shipping (Free)</label>
+                            <asp:RadioButton ID="rbStandard" runat="server" GroupName="Ship" Checked="true"
+                                Text="Standard Shipping (Free)" CssClass="form-check-input" />
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Ship" id="exp" />
-                            <label class="form-check-label" for="exp">Express Shipping ($5.00)</label>
+                            <asp:RadioButton ID="rbExpress" runat="server" GroupName="Ship"
+                                Text="Express Shipping ($5.00)" CssClass="form-check-input" />
                         </div>
                     </div>
 
                     <div class="card shadow-sm border-0 p-4">
                         <h4 class="mb-4">Payment Method</h4>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <div class="border p-3 rounded text-center" style="cursor: pointer;">
-                                    <i class="fas fa-credit-card fa-2x mb-2 text-primary"></i>
-                                    <div>Credit Card</div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="border p-3 rounded text-center" style="cursor: pointer;">
-                                    <i class="fas fa-money-bill-wave fa-2x mb-2 text-success"></i>
-                                    <div>Cash on Delivery</div>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <asp:DropDownList ID="ddlPayment" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Credit Card" Value="CreditCard"></asp:ListItem>
+                                <asp:ListItem Text="Cash on Delivery" Value="COD"></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -49,20 +42,26 @@
                         <h4>Order Summary</h4>
                         <hr />
                         <div class="d-flex justify-content-between mb-2">
-                            <span>Items (3)</span>
-                            <span>$26.98</span>
+                            <span>Items</span>
+                            <span>$<asp:Literal ID="litItemsTotal" runat="server"></asp:Literal></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Shipping</span>
-                            <span class="text-success">Free</span>
+                            <span class="text-success">
+                                <asp:Literal ID="litShipping" runat="server">Free</asp:Literal>
+                            </span>
                         </div>
                         <hr />
                         <div class="d-flex justify-content-between mb-4">
                             <span class="fw-bold fs-5">Total</span>
-                            <span class="fw-bold text-primary fs-4">$26.98</span>
+                            <span class="fw-bold text-primary fs-4">$<asp:Literal ID="litTotal" runat="server">
+                                </asp:Literal></span>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold">Place
-                            Order</button>
+                        <asp:Button ID="btnPlaceOrder" runat="server" Text="Place Order"
+                            CssClass="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold"
+                            OnClick="btnPlaceOrder_Click" />
+                        <asp:Label ID="lblMessage" runat="server" CssClass="text-danger d-block text-center mt-2"
+                            Visible="false"></asp:Label>
                         <p class="text-center mt-3 small text-muted"><i class="fas fa-lock me-1"></i> Secure Checkout
                         </p>
                     </div>

@@ -44,14 +44,14 @@
                 <li><a href="~/index.aspx" runat="server">Shop</a>
                     <ul>
                         <li><a href="~/Pages/Wearable.aspx" runat="server">Reviews</a></li>
-                        <li><a href="~/index.aspx" runat="server">Buy</a></li>
+                        <li><a href="~/Pages/Shop.aspx" runat="server">Buy</a></li>
                     </ul>
                 </li>
                 <li><a href="~/index.aspx" runat="server">About</a></li>
                 <li><a href="~/index.aspx" runat="server">Management</a>
                      <ul>
                         <li><a href="~/Pages/WearableOverview.aspx" runat="server">Wearable</a></li>
-                        <li><a href="~/index.aspx" runat="server">Users</a></li>
+                        <li><a href="~/Pages/Account/Admin.aspx" runat="server">Users</a></li>
                     </ul>
                 </li>
             </ul>

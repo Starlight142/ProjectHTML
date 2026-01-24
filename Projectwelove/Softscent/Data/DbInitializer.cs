@@ -1,5 +1,6 @@
 using Softscent.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Softscent.Data;
 
@@ -7,7 +8,8 @@ public static class DbInitializer
 {
     public static async Task Initialize(ApplicationDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
     {
-        context.Database.EnsureCreated();
+        // context.Database.EnsureCreated();
+        await context.Database.MigrateAsync();
 
         // Seed Roles
         string[] roleNames = { "Admin", "User" };
@@ -45,32 +47,32 @@ public static class DbInitializer
 
         var products = new Product[]
         {
-            new Product{Name="Peppermint Inhaler",Price=5.00m,Description="Classic refreshing peppermint scent.", IsCustomizable=false, ImageUrl="/images/products/peppermint.png"},
-            new Product{Name="Lavender Sleep Inhaler",Price=6.50m,Description="Calming lavender for better sleep.", IsCustomizable=false, ImageUrl="/images/products/lavender.png"},
-            new Product{Name="Citrus Energy Inhaler",Price=6.00m,Description="Zesty citrus to boost your energy.", IsCustomizable=false, ImageUrl="/images/products/citrus.png"},
-            new Product{Name="Traditional Thai Herbal Jar",Price=8.00m,Description="Authentic Thai herbal blend in a traditional jar. Contains clove, star anise, and camphor.", IsCustomizable=false, ImageUrl="/images/products/thai_jar.png"},
-            new Product{Name="Custom Inhaler Blend",Price=10.00m,Description="Your unique blend of herbs.", IsCustomizable=true, ImageUrl="/images/products/thai_jar.png"}
+            new Product{Name="Peppermint Inhaler", NameThai="เปปเปอร์มิ้นท์ เฟรช", Price=5.00m, Description="Classic refreshing peppermint scent.", DescriptionThai="เย็นสดชื่นทันทีและช่วยบรรเทาอาการปวดหัว", IsCustomizable=false, ImageUrl="/images/products/peppermint.png"},
+            new Product{Name="Lavender Sleep Inhaler", NameThai="ลาเวนเดอร์ สลีป", Price=6.50m, Description="Calming lavender for better sleep.", DescriptionThai="ผ่อนคลายและช่วยให้หลับสนิทยิ่งขึ้น", IsCustomizable=false, ImageUrl="/images/products/lavender.png"},
+            new Product{Name="Citrus Energy Inhaler", NameThai="ส้ม ซิตรัส เอเนอร์จี้", Price=6.00m, Description="Zesty citrus to boost your energy.", DescriptionThai="หอมสดชื่นจากผิวส้ม ช่วยปลุกพลังระหว่างวัน", IsCustomizable=false, ImageUrl="/images/products/citrus.png"},
+            new Product{Name="Traditional Thai Herbal Jar", NameThai="ยาดมกระปุกยาจีนโบราณ", Price=8.00m, Description="Authentic Thai herbal blend in a traditional jar. Contains clove, star anise, and camphor.", DescriptionThai="สูตรต้นตำรับจากสมุนไพรหมัก", IsCustomizable=false, ImageUrl="/images/products/thai_jar.png"},
+            new Product{Name="Custom Inhaler Blend", NameThai="จัดยาดมเองตามใจชอบ", Price=10.00m, Description="Your unique blend of herbs.", DescriptionThai="สูตรพิเศษเลือกผสมเองเพื่อคุณ", IsCustomizable=true, ImageUrl="/images/products/thai_jar.png"}
         };
         context.Products.AddRange(products);
 
         var herbs = new Herb[]
         {
-            new Herb{Name="Peppermint",Price=0.50m,Benefit="Refreshing"},
-            new Herb{Name="Eucalyptus",Price=0.50m,Benefit="Clearing"},
-            new Herb{Name="Lavender",Price=1.00m,Benefit="Calming"},
-            new Herb{Name="Lemongrass",Price=0.75m,Benefit="Energizing"},
-            new Herb{Name="Bergamot",Price=1.20m,Benefit="Uplifting"},
-            new Herb{Name="Rosemary",Price=0.80m,Benefit="Focus"},
+            new Herb{Name="Peppermint", NameThai="เปปเปอร์มิ้นท์", Price=0.50m, Benefit="Refreshing"},
+            new Herb{Name="Eucalyptus", NameThai="ยูคาลิปตัส", Price=0.50m, Benefit="Clearing"},
+            new Herb{Name="Lavender", NameThai="ลาเวนเดอร์", Price=1.00m, Benefit="Calming"},
+            new Herb{Name="Lemongrass", NameThai="ตะไคร้หอม", Price=0.75m, Benefit="Energizing"},
+            new Herb{Name="Bergamot", NameThai="มะกรูด", Price=1.20m, Benefit="Uplifting"},
+            new Herb{Name="Rosemary", NameThai="โรสแมรี่", Price=0.80m, Benefit="Focus"},
             // Thai Traditional Herbs
-            new Herb{Name="Borneol (Phimsen)",Price=1.50m,Benefit="Cooling & Respiratory Aid"},
-            new Herb{Name="Camphor (Karaboon)",Price=1.00m,Benefit="Relieves Dizziness"},
-            new Herb{Name="Star Anise (Poy Kak)",Price=1.20m,Benefit="Warming Aroma"},
-            new Herb{Name="Clove (Kan Phlu)",Price=1.20m,Benefit="Spicy & Clearing"},
-            new Herb{Name="Cinnamon (Ob Choey)",Price=1.00m,Benefit="Stimulates Circulation"},
-            new Herb{Name="Nutmeg (Look Jun)",Price=1.50m,Benefit="Relaxing & Soothing"}
+            new Herb{Name="Borneol (Phimsen)", NameThai="พิมเสน", Price=1.50m, Benefit="Cooling & Respiratory Aid"},
+            new Herb{Name="Camphor (Karaboon)", NameThai="การบูร", Price=1.00m, Benefit="Relieves Dizziness"},
+            new Herb{Name="Star Anise (Poy Kak)", NameThai="โป๊ยกั๊ก", Price=1.20m, Benefit="Warming Aroma"},
+            new Herb{Name="Clove (Kan Phlu)", NameThai="กานพลู", Price=1.20m, Benefit="Spicy & Clearing"},
+            new Herb{Name="Cinnamon (Ob Choey)", NameThai="อบเชย", Price=1.00m, Benefit="Stimulates Circulation"},
+            new Herb{Name="Nutmeg (Look Jun)", NameThai="ลูกจันทน์", Price=1.50m, Benefit="Relaxing & Soothing"}
         };
         context.Herbs.AddRange(herbs);
-        
+
         await context.SaveChangesAsync();
     }
 }

@@ -8,17 +8,22 @@
                     <h2 class="text-center mb-4">Welcome Back</h2>
                     <div class="mb-3">
                         <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="name@example.com" />
+                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="name@example.com"
+                            TextMode="Email"></asp:TextBox>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" />
+                        <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password">
+                        </asp:TextBox>
                     </div>
                     <div class="form-check mb-4">
-                        <input class="form-check-input" type="checkbox" id="rem" />
-                        <label class="form-check-label" for="rem">Remember me</label>
+                        <asp:CheckBox ID="chkRememberMe" runat="server" CssClass="form-check-input" />
+                        <label class="form-check-label" for="chkRememberMe">Remember me</label>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg w-100 rounded-pill mb-3">Log in</button>
+                    <asp:Button ID="btnLogin" runat="server" Text="Log in"
+                        CssClass="btn btn-primary btn-lg w-100 rounded-pill mb-3" OnClick="btnLogin_Click" />
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger d-block text-center mb-3"
+                        Visible="false"></asp:Label>
                     <div class="text-center">
                         <a href="Register.aspx" class="text-decoration-none">Create a new account</a>
                     </div>

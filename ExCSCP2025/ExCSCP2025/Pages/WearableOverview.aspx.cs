@@ -9,6 +9,9 @@ public partial class Pages_WearableOverview : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if ((String)Session["type"] != "admin")
+        {
+            Response.Redirect("~/Pages/Account/Login.aspx");
+        }
     }
 }

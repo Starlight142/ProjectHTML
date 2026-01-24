@@ -8,12 +8,47 @@ public partial class News : Page
     {
         if (!IsPostBack)
         {
-            var newsItems = new[] {
-                new { Title = "Grand Opening!", Date = DateTime.Now.AddDays(-10), Content = "We are officially open for business! Explore our herbal collections.", ImageUrl = "Images/herbs-bundle.png" },
-                new { Title = "Seasonal Blend: Lavender", Date = DateTime.Now.AddDays(-2), Content = "Check out our new Lavender collection for better sleep.", ImageUrl = "Images/products/lavender.png" }
-            };
-            NewsRepeater.DataSource = newsItems;
-            NewsRepeater.DataBind();
+            BindNews();
         }
+    }
+
+    private void BindNews()
+    {
+        var newsList = new List<NewsItem>();
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+        {
+            string query = "SELECT Id, Title, Content, ImageUrl, PublishedDate FROM News ORDER BY PublishedDate DESC";
+            using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            newsList.Add(new NewsItem
+                            {
+                                Id = (int)reader["Id"],
+                                Title = reader["Title"].ToString(),
+                                Content = reader["Content"].ToString(),
+                                ImageUrl = reader["ImageUrl"] != DBNull.Value ? reader["ImageUrl"].ToString() : null,
+                                PublishedDate = (DateTime)reader["PublishedDate"]
+                            });
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // If database connection fails, the list remains empty.
+                    // In a production environment, logging should be implemented.
+                }
+            }
+        }
+
+        NewsRepeater.DataSource = newsList;
+        NewsRepeater.DataBind();
     }
 }

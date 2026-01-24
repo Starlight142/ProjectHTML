@@ -19,25 +19,93 @@ public partial class ProductDetail : Page
 
     private void BindProduct(int id)
     {
-        // Mock data matching Products.aspx.cs
-        var products = new List<Product>
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
         {
-            new Product(1, "Peppermint Fresh", "Cooling and refreshing.", 5.99m, "Images/products/peppermint.png", false),
-            new Product(2, "Lavender Sleep", "Calming scent for deep sleep.", 6.99m, "Images/products/lavender.png", false),
-            new Product(3, "Citrus Energy", "Boost your energy instantly.", 5.99m, "Images/products/citrus.png", false),
-            new Product(4, "Traditional Thai Jar", "Authentic herbal blend.", 12.99m, "Images/products/thai_jar.png", true),
-            new Product(5, "Eucalyptus Clear", "Clears nasal congestion.", 6.49m, "Images/products/eucalyptus.png", false),
-            new Product(6, "Lemongrass Zen", "Spa-like relaxation.", 7.99m, "Images/products/lemongrass.png", true)
-        };
+            string query = "SELECT Id, Name, Description, Price, ImageUrl, IsCustomizable FROM Products WHERE Id = @Id";
+            using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", id);
+                try
+                {
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            var product = new Product(
+                                (int)reader["Id"],
+                                reader["Name"].ToString(),
+                                reader["Description"] != DBNull.Value ? reader["Description"].ToString() : "",
+                                (decimal)reader["Price"],
+                                reader["ImageUrl"] != DBNull.Value ? reader["ImageUrl"].ToString() : "",
+                                (bool)reader["IsCustomizable"]
+                            );
 
-        var product = products.FirstOrDefault(p => p.Id == id);
-        if (product != null)
+                            litName.Text = product.Name;
+                            litBreadcrumb.Text = product.Name;
+                            litDescription.Text = product.Description;
+                            litPrice.Text = product.Price.ToString("F2");
+                            ProductImage.Src = product.ImageUrl;
+                        }
+                    }
+                }
+                catch (Exception) { }
+            }
+        }
+    }
+    protected void btnAddToCart_Click(object sender, EventArgs e)
+    {
+        if (Request.QueryString["id"] != null)
         {
-            litName.Text = product.Name;
-            litBreadcrumb.Text = product.Name;
-            litDescription.Text = product.Description;
-            litPrice.Text = product.Price.ToString("F2");
-            ProductImage.Src = product.ImageUrl;
+            int id = int.Parse(Request.QueryString["id"]);
+            int qty = 1;
+            int.TryParse(txtQuantity.Text, out qty);
+            if (qty < 1) qty = 1;
+
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+            {
+                string query = "SELECT Name, Price, ImageUrl, Description FROM Products WHERE Id = @Id";
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Get existing cart or create new
+                            List<CartItem> cart = Session["Cart"] as List<CartItem>;
+                            if (cart == null)
+                            {
+                                cart = new List<CartItem>();
+                            }
+
+                            // Check if item exists
+                            var existingItem = cart.FirstOrDefault(i => i.ProductId == id);
+                            if (existingItem != null)
+                            {
+                                existingItem.Quantity += qty;
+                            }
+                            else
+                            {
+                                cart.Add(new CartItem(
+                                    id,
+                                    reader["Name"].ToString(),
+                                    (decimal)reader["Price"],
+                                    qty,
+                                    reader["ImageUrl"] != DBNull.Value ? reader["ImageUrl"].ToString() : "",
+                                    reader["Description"] != DBNull.Value ? reader["Description"].ToString() : ""
+                                ));
+                            }
+
+                            Session["Cart"] = cart;
+                            Response.Redirect("Cart.aspx");
+                        }
+                    }
+                }
+            }
         }
     }
 }

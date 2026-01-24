@@ -8,14 +8,46 @@ public partial class Admin_Products : Page
     {
         if (!IsPostBack)
         {
-            var products = new List<Product>
-            {
-                new Product(1, "Peppermint Fresh", "Cooling and refreshing.", 5.99m, "../Images/products/peppermint.png", false),
-                new Product(2, "Lavender Sleep", "Calming scent for deep sleep.", 6.99m, "../Images/products/lavender.png", false),
-                new Product(4, "Traditional Thai Jar", "Authentic herbal blend.", 12.99m, "../Images/products/thai_jar.png", true)
-            };
-            AdminProductRepeater.DataSource = products;
-            AdminProductRepeater.DataBind();
+            BindProducts();
         }
+    }
+
+    private void BindProducts()
+    {
+        var products = new List<Product>();
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+        {
+            string query = "SELECT Id, Name, Description, Price, ImageUrl, IsCustomizable FROM Products";
+            using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+            {
+                try
+                {
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            products.Add(new Product(
+                                (int)reader["Id"],
+                                reader["Name"].ToString(),
+                                reader["Description"] != DBNull.Value ? reader["Description"].ToString() : "",
+                                (decimal)reader["Price"],
+                                reader["ImageUrl"] != DBNull.Value ? reader["ImageUrl"].ToString() : "",
+                                (bool)reader["IsCustomizable"]
+                            ));
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // Fallback
+                }
+            }
+        }
+
+        AdminProductRepeater.DataSource = products;
+        AdminProductRepeater.DataBind();
     }
 }

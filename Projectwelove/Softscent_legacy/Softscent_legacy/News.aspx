@@ -11,7 +11,7 @@
                         <div class="col-md-8 offset-md-2 mb-5 border-bottom pb-4">
                             <div class="d-flex align-items-center mb-2">
                                 <small class="text-muted"><i class="far fa-calendar-alt me-2"></i>
-                                    <%# Eval("Date", "{0:D}" ) %>
+                                    <%# Eval("PublishedDate", "{0:D}" ) %>
                                 </small>
                             </div>
                             <h2 class="mb-3">

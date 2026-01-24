@@ -14,18 +14,40 @@ public partial class Products : Page
 
     private void BindProducts()
     {
-        // Simulate database data
-        var products = new List<Product>
+        try
         {
-            new Product(1, "Peppermint Fresh", "Cooling and refreshing.", 5.99m, "Images/products/peppermint.png", false),
-            new Product(2, "Lavender Sleep", "Calming scent for deep sleep.", 6.99m, "Images/products/lavender.png", false),
-            new Product(3, "Citrus Energy", "Boost your energy instantly.", 5.99m, "Images/products/citrus.png", false),
-            new Product(4, "Traditional Thai Jar", "Authentic herbal blend.", 12.99m, "Images/products/thai_jar.png", true),
-            new Product(5, "Eucalyptus Clear", "Clears nasal congestion.", 6.49m, "Images/products/eucalyptus.png", false),
-            new Product(6, "Lemongrass Zen", "Spa-like relaxation.", 7.99m, "Images/products/lemongrass.png", true)
-        };
+            var products = new List<Product>();
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        ProductRepeater.DataSource = products;
-        ProductRepeater.DataBind();
+            using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+            {
+                string query = "SELECT Id, Name, Description, Price, ImageUrl, IsCustomizable FROM Products";
+                using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            products.Add(new Product(
+                                (int)reader["Id"],
+                                reader["Name"].ToString(),
+                                reader["Description"] != DBNull.Value ? reader["Description"].ToString() : "",
+                                (decimal)reader["Price"],
+                                reader["ImageUrl"] != DBNull.Value ? reader["ImageUrl"].ToString() : "",
+                                (bool)reader["IsCustomizable"]
+                            ));
+                        }
+                    }
+                }
+            }
+
+            ProductRepeater.DataSource = products;
+            ProductRepeater.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Response.Write("<div style='color:red; font-weight:bold; padding:20px; border:1px solid red;'>Error: " + ex.Message + "<br/> Stack: " + ex.StackTrace + "</div>");
+        }
     }
 }

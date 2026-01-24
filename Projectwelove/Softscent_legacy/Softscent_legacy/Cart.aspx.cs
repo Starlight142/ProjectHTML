@@ -14,23 +14,31 @@ public partial class Cart : Page
 
     private void BindCart()
     {
-        // Mock data for cart
-        var cartItems = new[] {
-            new { Name = "Peppermint Fresh", Quantity = 2, ImageUrl = "Images/products/peppermint.png", Description = "Inhaler", TotalPrice = 11.98m },
-            new { Name = "Custom Herbal Blend", Quantity = 1, ImageUrl = "Images/products/thai_jar.png", Description = "Lavender, Eucalyptus", TotalPrice = 15.00m }
-        };
-
-        if (cartItems.Length > 0)
+        List<CartItem> cart = Session["Cart"] as List<CartItem>;
+        
+        if (cart != null && cart.Count > 0)
         {
-            CartRepeater.DataSource = cartItems;
+            CartRepeater.Visible = true;
+            EmptyCartPanel.Visible = false;
+            
+            CartRepeater.DataSource = cart;
             CartRepeater.DataBind();
-            litSubtotal.Text = "26.98";
-            litTotal.Text = "26.98";
+            
+            decimal total = 0;
+            foreach(var item in cart)
+            {
+                total += item.TotalPrice;
+            }
+
+            litSubtotal.Text = total.ToString("F2");
+            litTotal.Text = total.ToString("F2");
         }
         else
         {
             CartRepeater.Visible = false;
             EmptyCartPanel.Visible = true;
+            litSubtotal.Text = "0.00";
+            litTotal.Text = "0.00";
         }
     }
 }
