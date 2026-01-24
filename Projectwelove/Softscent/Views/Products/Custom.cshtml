@@ -1,42 +1,64 @@
 @model IEnumerable<Softscent.Models.Herb>
 
 @{
-    ViewData["Title"] = "Create Custom Blend";
+    ViewData["Title"] = "ปรุงยาดมในแบบของคุณ";
 }
 
 <div class="container py-5">
     <div class="row align-items-center">
         <div class="col-lg-6">
-            <h1 class="mb-4 display-4">Craft Your Scent</h1>
-            <p class="lead mb-5">Select your favorite herbs to create a unique inhaler blend tailored to your needs.</p>
+            <h1 class="mb-4 display-4">ปรุงยาดมในแบบของคุณ</h1>
+            <p class="lead mb-5">เลือกส่วนผสมสมุนไพรพรีเมียมเพื่อกลิ่นและสรรพคุณที่คุณต้องการ</p>
         </div>
         <div class="col-lg-6">
             <div class="card p-5 glass-nav">
                 <form asp-action="AddToCartCustom" method="post">
-                    <h3 class="mb-4">Select Ingredients</h3>
-                    <div class="mb-4" style="max-height: 300px; overflow-y: auto;">
-                        @foreach (var herb in Model)
+                    <h3 class="mb-2">เลือกส่วนผสม</h3>
+                    <p class="text-muted small mb-4">
+                        ส่วนผสมคุณภาพเยี่ยม (@Model.Count())
+                    </p>
+
+                    <div class="mb-4" style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
+                        <h6 class="text-primary fw-bold mb-3 border-bottom pb-2">สมุนไพรคลาสสิก</h6>
+                        @foreach (var herb in Model.Where(h => h.Id <= 6))
                         {
                             <div class="form-check mb-3">
                                 <input class="form-check-input herb-checkbox" type="checkbox" value="@herb.Name" id="herb_@herb.Id" name="selectedHerbs_array">
-                                <label class="form-check-label d-flex justify-content-between w-100 pe-3" for="herb_@herb.Id">
-                                    <span>@herb.Name</span>
-                                    <span class="text-muted small">@herb.Benefit</span>
+                                <label class="form-check-label d-flex align-items-center w-100" for="herb_@herb.Id">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold">@herb.NameThai</div>
+                                        <div class="text-muted small">@herb.BenefitThai</div>
+                                    </div>
                                 </label>
                             </div>
                         }
-                         @if (!Model.Any())
+
+                        <h6 class="text-primary fw-bold mt-4 mb-3 border-bottom pb-2">สมุนไพรไทยพื้นบ้าน</h6>
+                        @foreach (var herb in Model.Where(h => h.Id > 6))
                         {
-                             <p>No herbs available to select.</p>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input herb-checkbox" type="checkbox" value="@herb.Name" id="herb_@herb.Id" name="selectedHerbs_array">
+                                <label class="form-check-label d-flex align-items-center w-100" for="herb_@herb.Id">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold">@herb.NameThai</div>
+                                        <div class="text-muted small text-success">@herb.BenefitThai</div>
+                                    </div>
+                                </label>
+                            </div>
+                        }
+
+                        @if (!Model.Any())
+                        {
+                             <p>ไม่มีส่วนผสมให้เลือกในขณะนี้</p>
                         }
                     </div>
                     
                     <!-- Hidden input to store comma separated string -->
                     <input type="hidden" name="selectedHerbs" id="selectedHerbsInput" />
 
-                    <div class="d-grid">
+                    <div class="d-grid mt-4">
                         <button type="submit" class="btn btn-primary btn-lg" onclick="prepareSubmission()">
-                            Create Blend ($59.00)
+                            เพิ่มลงตะกร้า
                         </button>
                     </div>
                 </form>

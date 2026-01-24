@@ -24,4 +24,6 @@ public class Herb
     // For mixing logic, maybe properties?
     // e.g., benefit type: "Relaxing", "Refreshing"
     public string? Benefit { get; set; }
+
+    public string? BenefitThai { get; set; }
 }

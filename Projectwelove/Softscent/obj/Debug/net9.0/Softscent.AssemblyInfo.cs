@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Softscent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b1bed1ba78004ecbc2e28da1a427116a17942b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14ce6c706665f32dbc3ebcc073be8362834f5212")]
 [assembly: System.Reflection.AssemblyProductAttribute("Softscent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Softscent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
