@@ -1,4 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageCMS.master.cs" Inherits="MasterPage" %>
+<%-- 
+    MasterPage for Content Management System (CMS) / Administration side. 
+--%>
 
 <!DOCTYPE html>
 

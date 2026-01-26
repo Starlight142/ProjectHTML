@@ -1,4 +1,5 @@
-﻿body {
+﻿/* Main stylesheet for the application, defining layout, navigation, and product display styles. */
+body {
     font-family: '1942 report', '293PANIRamenDemo', 'Times New Roman', 'Times', 'serif';
     font: bold 24px '1942 report', '293PANIRamenDemo', 'Times New Roman', 'Times', 'serif';
     background-color: #e9e9e9;

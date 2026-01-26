@@ -1,17 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ProjectHTML\\ExCSCP2025\\",
+  "WorkspaceRootPath": "D:\\ProjectHTML\\Study\\ExCSCP2025\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|d:\\projecthtml\\excscp2025\\excscp2025\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\pages\\wearable.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\pages\\wearable.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\ExCSCP2025\\excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\pages\\wearable.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\pages\\wearable.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\pages\\shop.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\pages\\shop.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|d:\\projecthtml\\study\\excscp2025\\excscp2025\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|F:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\ExCSCP2025\\excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|F:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|D:\\ProjectHTML\\Study\\ExCSCP2025\\excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{4B49ABB6-1250-4F7A-A8FD-C0239B7014E0}|F:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025|solutionrelative:excscp2025\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
@@ -22,20 +38,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Web.config",
-              "DocumentMoniker": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\Web.config",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Web.config",
               "RelativeDocumentMoniker": "ExCSCP2025\\Web.config",
-              "ToolTip": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\Web.config",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Web.config",
               "RelativeToolTip": "ExCSCP2025\\Web.config",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBkAAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwBMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-01-19T13:15:58.218Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "index.aspx",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "RelativeDocumentMoniker": "ExCSCP2025\\index.aspx",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "RelativeToolTip": "ExCSCP2025\\index.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-26T12:40:05.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Shop.aspx.cs",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Shop.aspx.cs",
+              "RelativeDocumentMoniker": "ExCSCP2025\\Pages\\Shop.aspx.cs",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Shop.aspx.cs",
+              "RelativeToolTip": "ExCSCP2025\\Pages\\Shop.aspx.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAowFsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T12:35:04.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Wearable.aspx.cs",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Wearable.aspx.cs",
+              "RelativeDocumentMoniker": "ExCSCP2025\\Pages\\Wearable.aspx.cs",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Wearable.aspx.cs",
+              "RelativeToolTip": "ExCSCP2025\\Pages\\Wearable.aspx.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwCgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T12:34:57.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Wearable.aspx",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Wearable.aspx",
+              "RelativeDocumentMoniker": "ExCSCP2025\\Pages\\Wearable.aspx",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\Pages\\Wearable.aspx",
+              "RelativeToolTip": "ExCSCP2025\\Pages\\Wearable.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-26T12:34:50.943Z",
               "EditorCaption": ""
             },
             {
@@ -44,11 +112,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "index.aspx",
-              "DocumentMoniker": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
               "RelativeDocumentMoniker": "ExCSCP2025\\index.aspx",
-              "ToolTip": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
               "RelativeToolTip": "ExCSCP2025\\index.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -56,11 +124,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "index.aspx",
-              "DocumentMoniker": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "DocumentMoniker": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
               "RelativeDocumentMoniker": "ExCSCP2025\\index.aspx",
-              "ToolTip": "D:\\ProjectHTML\\ExCSCP2025\\ExCSCP2025\\index.aspx",
+              "ToolTip": "D:\\ProjectHTML\\Study\\ExCSCP2025\\ExCSCP2025\\index.aspx",
               "RelativeToolTip": "ExCSCP2025\\index.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",

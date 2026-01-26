@@ -6,12 +6,22 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
 
+/// <summary>
+/// Page for browsing and purchasing wearable products.
+/// </summary>
 public partial class Pages_Shop : System.Web.UI.Page
 {
+    /// <summary>
+    /// Handles Page_Load to generate product controls.
+    /// </summary>
     protected void Page_Load(object sender, EventArgs e)
     {
         GenerateControls();
     }
+
+    /// <summary>
+    /// Dynamically creates UI controls for each wearable product.
+    /// </summary>
     private void GenerateControls()
     {
         ArrayList wearableList = ConnectionClass.GetWearableByType("%");
@@ -22,14 +32,24 @@ public partial class Pages_Shop : System.Web.UI.Page
             Literal literal1 = new Literal { Text = "<br />" };
             Literal literal2 = new Literal { Text = "<br />" };
             Label lblName = new Label { Text = wearable.Name, CssClass = "ProductName" };
-            Label lblPrice = new Label { Text = String.Format("{0:0.00}", wearable.Price + "<br />"), 
-                                            CssClass = "ProductPrice"};
-            TextBox txtBox = new TextBox { ID = wearable.IdWearable.ToString(), CssClass = "ProductTextBox",
-                                            Width = 60, Text = "0"};
-            RegularExpressionValidator regex = new RegularExpressionValidator { 
-                                            ValidationExpression = "^[0-9]*",
-                                             ControlToValidate = txtBox.ID,
-                                              ErrorMessage = "Please enter a number" };
+            Label lblPrice = new Label
+            {
+                Text = String.Format("{0:0.00}", wearable.Price + "<br />"),
+                CssClass = "ProductPrice"
+            };
+            TextBox txtBox = new TextBox
+            {
+                ID = wearable.IdWearable.ToString(),
+                CssClass = "ProductTextBox",
+                Width = 60,
+                Text = "0"
+            };
+            RegularExpressionValidator regex = new RegularExpressionValidator
+            {
+                ValidationExpression = "^[0-9]*",
+                ControlToValidate = txtBox.ID,
+                ErrorMessage = "Please enter a number"
+            };
             wearablePanel.Controls.Add(image);
             wearablePanel.Controls.Add(literal1);
             wearablePanel.Controls.Add(lblName);
@@ -41,6 +61,11 @@ public partial class Pages_Shop : System.Web.UI.Page
             pnlProducts.Controls.Add(wearablePanel);
         }
     }
+
+    /// <summary>
+    /// Collects order information from the dynamically generated textboxes.
+    /// </summary>
+    /// <returns>An ArrayList of Order objects.</returns>
     private ArrayList GetOrder()
     {
         ArrayList orderList = new ArrayList();
@@ -60,7 +85,7 @@ public partial class Pages_Shop : System.Web.UI.Page
                 if (amountOfOrder > 0)
                 {
                     Wearable wearable = ConnectionClass.GetWearableById(Convert.ToInt32(textBox.ID));
-                    Order order = new Order(Session["login"].ToString(), wearable.Name, amountOfOrder, 
+                    Order order = new Order(Session["login"].ToString(), wearable.Name, amountOfOrder,
                                             wearable.Price, DateTime.Now, false);
                     orderList.Add(order);
                 }
@@ -69,6 +94,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         return orderList;
     }
 
+    /// <summary>
+    /// Generates a summary of the current order for user review.
+    /// </summary>
     private void GenerateReview()
     {
         double totalAmount = 0.0;
@@ -100,6 +128,10 @@ public partial class Pages_Shop : System.Web.UI.Page
         btnOK.Visible = true;
         btnCancel.Visible = true;
     }
+
+    /// <summary>
+    /// Checks if a user is logged in; redirects to Login page if not.
+    /// </summary>
     private void Authenticate()
     {
         if (Session["login"] == null)
@@ -108,6 +140,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         }
     }
 
+    /// <summary>
+    /// Resets all product quantity textboxes to zero.
+    /// </summary>
     private void ClearAmount()
     {
         ContentPlaceHolder cph = (ContentPlaceHolder)Master.FindControl("ContentPlaceHolder1");
@@ -121,6 +156,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         }
     }
 
+    /// <summary>
+    /// Sends the finalized order to the database.
+    /// </summary>
     private void SendOrder()
     {
         ArrayList orderList = (ArrayList)Session["orders"];
@@ -128,6 +166,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         Session["orders"] = null;
     }
 
+    /// <summary>
+    /// Handles the "Order" button click.
+    /// </summary>
     protected void btnOrder_Click(object sender, EventArgs e)
     {
         Authenticate();
@@ -135,6 +176,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         ClearAmount();
     }
 
+    /// <summary>
+    /// Handles the "OK" button click to confirm order placement.
+    /// </summary>
     protected void btnOK_Click(object sender, EventArgs e)
     {
         Authenticate();
@@ -145,6 +189,9 @@ public partial class Pages_Shop : System.Web.UI.Page
         btnCancel.Visible = false;
     }
 
+    /// <summary>
+    /// Handles the "Cancel" button click to discard the current order.
+    /// </summary>
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         Session["orders"] = null;

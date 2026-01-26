@@ -75,4 +75,15 @@ public partial class Pages_Orders : System.Web.UI.Page
             default: return "secondary";
         }
     }
+
+    public string GetThaiStatus(string status)
+    {
+        switch (status.ToLower())
+        {
+            case "completed": return "สำเร็จ";
+            case "pending": return "รอชำระเงิน";
+            case "cancelled": return "ยกเลิก";
+            default: return status;
+        }
+    }
 }

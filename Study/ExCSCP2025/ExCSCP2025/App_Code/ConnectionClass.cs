@@ -6,13 +6,16 @@ using System.Configuration;
 using System.Data.SqlClient;
 
 /// <summary>
-/// Summary description for ConnectionClass
+/// Provides data access methods for interacting with the database.
 /// </summary>
 public class ConnectionClass
 {
     private static SqlConnection conn;
     private static SqlCommand command;
 
+    /// <summary>
+    /// Static constructor to initialize the database connection.
+    /// </summary>
     static ConnectionClass()
     {
         string connectionString = ConfigurationManager.ConnectionStrings["dbCPCCS69ConnectionString"].ToString();
@@ -20,6 +23,11 @@ public class ConnectionClass
         command = new SqlCommand("", conn);
     }
 
+    /// <summary>
+    /// Retrieves a list of wearable products by type.
+    /// </summary>
+    /// <param name="wearableType">The type of wearable to search for.</param>
+    /// <returns>An ArrayList of Wearable objects.</returns>
     public static ArrayList GetWearableByType(string wearableType)
     {
         ArrayList list = new ArrayList();
@@ -51,6 +59,10 @@ public class ConnectionClass
         return list;
     }
 
+    /// <summary>
+    /// Adds a new wearable product to the database.
+    /// </summary>
+    /// <param name="wearable">The Wearable object to be added.</param>
     public static void AddWearable(Wearable wearable)
     {
         string query = string.Format(@"INSERT INTO wearable VALUES('{0}', '{1}', @price, '{2}', '{3}')"
@@ -69,6 +81,12 @@ public class ConnectionClass
         }
     }
 
+    /// <summary>
+    /// Authenticates a user based on username and password.
+    /// </summary>
+    /// <param name="name">The username.</param>
+    /// <param name="password">The password.</param>
+    /// <returns>A User object if authentication is successful; otherwise, null.</returns>
     public static User LoginUser(string name, string password)
     {
         User user = null;
@@ -116,6 +134,12 @@ public class ConnectionClass
         }
         return user;
     }
+
+    /// <summary>
+    /// Checks if a username is available.
+    /// </summary>
+    /// <param name="name">The username to check.</param>
+    /// <returns>1 if valid/available; 0 if already exists.</returns>
     public static int ValidUsername(string name)
     {
         string query = string.Format("SELECT COUNT(*) FROM users WHERE user_name = '{0}'", name);
@@ -135,6 +159,11 @@ public class ConnectionClass
         }          
     } 
 
+    /// <summary>
+    /// Registers a new user in the system.
+    /// </summary>
+    /// <param name="user">The User object containing registration data.</param>
+    /// <returns>A message indicating registration status.</returns>
     public static string RegisterUser(User user)
     {
         string query = string.Format("SELECT COUNT(*) FROM users WHERE user_name = '{0}'", user.UserName);
@@ -163,6 +192,12 @@ public class ConnectionClass
             conn.Close();
         }
     }
+
+    /// <summary>
+    /// Retrieves a wearable product by its ID.
+    /// </summary>
+    /// <param name="id">The ID of the wearable.</param>
+    /// <returns>A Wearable object if found; otherwise, null.</returns>
     public static Wearable GetWearableById(int id)
     {
         Wearable wearable = null;
@@ -192,6 +227,10 @@ public class ConnectionClass
         return wearable;
     }
 
+    /// <summary>
+    /// Adds a list of orders to the database.
+    /// </summary>
+    /// <param name="orders">An ArrayList of Order objects.</param>
     public static void AddOrder(ArrayList orders)
     {
         string query = string.Format(@"INSERT INTO orders VALUES(@client, @product, @amount,

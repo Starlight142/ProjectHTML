@@ -1,4 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%-- 
+    MasterPage for the public-facing side of the application. 
+    Defines the layout, navigation, and script references.
+--%>
 
 <!DOCTYPE html>
 
