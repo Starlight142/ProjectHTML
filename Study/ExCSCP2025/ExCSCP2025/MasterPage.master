@@ -40,7 +40,7 @@
                 <li><a href="~/index.aspx" runat="server">Home</a></li>
                 <li><a href="~/index.aspx" runat="server">ประวัติ</a>
                     <ul>
-                        <li><a href="~/index.aspx" runat="server">ความเป็นมา</a></li>
+                        <li>    </li>
                         <li><a href="~/index.aspx" runat="server">วิสัยทัศน์</a></li>
                         <li><a href="~/index.aspx" runat="server">สัญลักษณ์</a></li>
                     </ul>
